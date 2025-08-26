@@ -2,22 +2,30 @@ using UnityEngine;
 
 namespace AbyssMoth.CuteDI.Example
 {
-    [DisallowMultipleComponent]
     public abstract class SceneEntryPoint : MonoBehaviour
     {
-        private void Awake() => PreInitialize();
+        protected DIContainer Scene { get; private set; }
+        protected DIContainer Project { get; private set; }
 
-        private void Start() => Initialize();
+        private void Awake()
+        {
+            Scene = gameObject.scene.GetSceneContainer();
+            Project = gameObject.scene.GetProjectContainer();
+            
+            Debug.Assert(Scene != null);
+            Debug.Assert(Project != null);
+            
+            PreInitialize();
+        }
 
-        private void OnDestroy() => Finalization();
+        private void Start() => 
+            Initialize();
 
-        /// <summary>MonoBehaviour.Awake() callback</summary>
+        private void OnDestroy() => 
+            Finalization();
+
         protected virtual void PreInitialize() { }
-        
-        /// <summary>MonoBehaviour.Start() callback</summary>
         protected virtual void Initialize() { }
-        
-        /// <summary>MonoBehaviour.OnDestroy() callback</summary>
         protected virtual void Finalization() { }
     }
 }
