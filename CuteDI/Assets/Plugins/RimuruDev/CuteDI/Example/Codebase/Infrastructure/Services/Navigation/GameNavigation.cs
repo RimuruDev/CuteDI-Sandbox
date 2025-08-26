@@ -25,32 +25,26 @@ namespace AbyssMoth.CuteDI.Example
         public void LoadScene(string sceneName, Action<DIContainer> onLoaded = null) =>
             coroutines.StartCoroutine(LoadRoutine(sceneName, onLoaded));
 
-        private IEnumerator LoadRoutine(string sceneName, Action<DIContainer> onLoaded)
+        private static IEnumerator LoadRoutine(string sceneName, Action<DIContainer> onLoaded)
         {
             var op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
            
             Debug.Assert(op != null, nameof(op) + " != null");
            
             op.allowSceneActivation = false;
-           
-            while (op.progress < 0.9f)
+            
+            while (op.progress < 0.9f) 
                 yield return null;
-          
+            
             op.allowSceneActivation = true;
-          
             while (!op.isDone)
                 yield return null;
 
-            var container = DiProvider.GetSceneContainerBySceneName(sceneName);
-            var end = Time.realtimeSinceStartup + 2f;
-          
-            while (container == null && Time.realtimeSinceStartup < end)
-            {
-                yield return null;
-                container = DiProvider.GetSceneContainerBySceneName(sceneName);
-            }
+            yield return new WaitUntil(() => DiProvider.GetSceneContainerBySceneName(sceneName) != null);
 
+            var container = DiProvider.GetSceneContainerBySceneName(sceneName);
             onLoaded?.Invoke(container);
         }
+
     }
 }
