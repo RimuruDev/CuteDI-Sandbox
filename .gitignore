@@ -76,4 +76,6 @@ crashlytics-build.properties
 /CuteDI/Library
 /CuteDI/Temp
 /CuteDI/UserSettings
-/CuteDI
+/CuteDI/.idea
+/CuteDI/Assets/Internal
+/CuteDI/obj
