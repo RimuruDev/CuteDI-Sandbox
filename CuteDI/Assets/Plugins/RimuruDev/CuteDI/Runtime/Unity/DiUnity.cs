@@ -29,7 +29,7 @@ namespace AbyssMoth.CuteDI
 
             return comp;
         }
-
+        
         [Preserve]
         public static TInterface BindOnGo<TInterface, TImpl>(
             this DIContainer container,
@@ -37,11 +37,15 @@ namespace AbyssMoth.CuteDI
             string tag = null)
             where TImpl : MonoBehaviour, TInterface
         {
+            if (!instance || !instance.gameObject.scene.IsValid())
+                throw new InvalidOperationException($"BindOnGo<{typeof(TInterface).Name},{typeof(TImpl).Name}> expects a scene instance. Use BindPrefab for assets.");
+    
             RegisterMono(container, instance, tag);
             container.RegisterInstance<TInterface>(instance, tag);
-
+          
             return instance;
         }
+
 
         // TODO: сделать отдельно для UI просто ибо isUI не оч
         [Preserve]
