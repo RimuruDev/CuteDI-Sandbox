@@ -22,6 +22,9 @@ namespace AbyssMoth.CuteDI.Example
         public void GoToGameplay(Action<DIContainer> onLoaded = null) =>
             coroutines.StartCoroutine(LoadRoutine("Gameplay", onLoaded));
 
+        public void GoToOther(Action<DIContainer> onLoaded = null) => 
+            coroutines.StartCoroutine(LoadRoutine("Other", onLoaded));
+
         public void LoadScene(string sceneName, Action<DIContainer> onLoaded = null) =>
             coroutines.StartCoroutine(LoadRoutine(sceneName, onLoaded));
 

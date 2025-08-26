@@ -25,7 +25,10 @@ namespace AbyssMoth.CuteDI.Example
                 navigation.GoToMainMenu();
             
             if (Input.GetKeyDown(KeyCode.Alpha2))
-                navigation.GoToGameplay();
+                navigation.GoToGameplay();  
+            
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+                navigation.GoToOther();
         }
 
         private void OnDestroy() =>

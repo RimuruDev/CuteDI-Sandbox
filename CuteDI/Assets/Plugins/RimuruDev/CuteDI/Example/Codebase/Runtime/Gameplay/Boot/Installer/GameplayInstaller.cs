@@ -14,11 +14,10 @@ namespace AbyssMoth.CuteDI.Example
             scene.RegisterType<IEnemySpawner, EnemySpawner>().AsSingle().NonLazy();
 
             var gameNavigation = project.Resolve<IGameNavigation>();
-            scene.Register(c => new GameplayController(c.Resolve<IEnemySpawner>(), gameNavigation)).AsSingle()
-                .NonLazy();
+            scene.Register(c => new GameplayController(c.Resolve<IEnemySpawner>(), gameNavigation)).AsSingle().NonLazy();
 
             if (hudPrefab)
-                scene.BindPrefabSelf<HUD>(hudPrefab /*, isUI: true*/);
+                scene.BindPrefabSelf<HUD>(hudPrefab);
         }
 
 #if UNITY_EDITOR

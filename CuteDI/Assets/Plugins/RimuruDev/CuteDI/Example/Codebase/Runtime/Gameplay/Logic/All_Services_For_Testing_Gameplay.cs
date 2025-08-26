@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace AbyssMoth.CuteDI.Example
 {
     public interface IEnemySpawner { }
@@ -10,6 +8,4 @@ namespace AbyssMoth.CuteDI.Example
     {
         public GameplayController(IEnemySpawner spawner, IGameNavigation nav) { }
     }
-    
-    public sealed class HUD : MonoBehaviour { }
 }

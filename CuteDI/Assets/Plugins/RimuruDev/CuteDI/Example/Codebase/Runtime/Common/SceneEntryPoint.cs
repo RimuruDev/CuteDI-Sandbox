@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace AbyssMoth.CuteDI.Example
 {
+    [Preserve]
     public abstract class SceneEntryPoint : MonoBehaviour
     {
         protected DIContainer Scene { get; private set; }

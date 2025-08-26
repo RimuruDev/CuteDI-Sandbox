@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace AbyssMoth.CuteDI.Example
 {
     public interface IMenuService { }
@@ -7,9 +5,7 @@ namespace AbyssMoth.CuteDI.Example
     public sealed class MenuService : IMenuService { }
     
     public interface IMenuRoot { }
-    
-    public sealed class MenuRoot : MonoBehaviour, IMenuRoot { }
-  
+
     public sealed class MenuViewModel
     {
         public MenuViewModel(IMenuService s) { }
