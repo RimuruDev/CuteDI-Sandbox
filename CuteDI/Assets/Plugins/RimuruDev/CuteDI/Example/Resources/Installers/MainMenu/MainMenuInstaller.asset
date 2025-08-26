@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91dcfea0f5c046298aefd5b428ae9341, type: 3}
   m_Name: MainMenuInstaller
   m_EditorClassIdentifier: 
+  menuRootPrefab: {fileID: 1260988160940601162, guid: bbff232647f89416fad312d523f00444, type: 3}

@@ -134,6 +134,39 @@ namespace AbyssMoth.CuteDI
             return list;
         }
 
+        public bool TryResolve<TService>(out TService value, string tag = null)
+        {
+            try
+            {
+                value = Resolve<TService>(tag);
+                return true;
+            }
+            catch
+            {
+                value = default;
+                return false;
+            }
+        }
+
+        public bool HasRegistration<TService>(string tag = null)
+        {
+            var key = (tag, typeof(TService));
+          
+            if (map.ContainsKey(key))
+                return true;
+           
+            return parent != null && parent.HasRegistration<TService>(tag);
+        }
+
+        public RegistrationBuilder<T> Replace<T>(Func<DIContainer, T> factory, string tag = null)
+        {
+            var key = (tag, typeof(T));
+           
+            map[key] = new DIEntry<T>(this, factory);
+          
+            return new RegistrationBuilder<T>(this, key);
+        }
+        
         public void Dispose()
         {
             foreach (var e in map.Values) e.Dispose();

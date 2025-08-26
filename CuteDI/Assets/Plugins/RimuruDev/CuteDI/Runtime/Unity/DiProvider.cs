@@ -139,7 +139,7 @@ namespace AbyssMoth.CuteDI
             if (c != null && c != Project)
                 c.Dispose();
 
-            Debug.Log($"<color=green>DiLocator::Unloaded(scene:{s.name}, container:{scenes[s.handle]});</color>");
+            Debug.Log($"<color=yellow>DiLocator::Unloaded(scene:{s.name}, container:{scenes[s.handle]});</color>");
 
             scenes.Remove(s.handle);
         }

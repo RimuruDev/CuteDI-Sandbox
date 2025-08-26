@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Plugins/RimuruDev/CuteDI/Example/Scenes/Boot.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Plugins/RimuruDev/CuteDI/Example/Scenes/Other.unity
+    guid: 183544f7cbeac4753a9f4d8d733b5c22
+  - enabled: 1
     path: Assets/Plugins/RimuruDev/CuteDI/Example/Scenes/MainMenu.unity
     guid: 1e031d11a52fe4699854d5519b1cd6b0
-  - enabled: 1
-    path: Assets/Plugins/RimuruDev/CuteDI/Example/Scenes/Empty.unity
-    guid: a55830c95b962485aac8ae3dba9ffba8
   - enabled: 1
     path: Assets/Plugins/RimuruDev/CuteDI/Example/Scenes/Gameplay.unity
     guid: 836aa171f5fde496381326670ddec79e
